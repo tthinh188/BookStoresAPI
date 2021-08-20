@@ -1,0 +1,15 @@
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\BookStores.Repository.deps.json
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\BookStores.Repository.dll
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\ref\BookStores.Repository.dll
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\BookStores.Repository.pdb
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\BookStores.Domain.dll
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\bin\Debug\net5.0\BookStores.Domain.pdb
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.csproj.AssemblyReference.cache
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.AssemblyInfoInputs.cache
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.AssemblyInfo.cs
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.csproj.CoreCompileInputs.cache
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.csproj.CopyComplete
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.dll
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\ref\BookStores.Repository.dll
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Repository\obj\Debug\net5.0\BookStores.Repository.pdb

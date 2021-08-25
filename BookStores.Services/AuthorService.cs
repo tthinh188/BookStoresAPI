@@ -16,6 +16,19 @@ namespace BookStores.Services
             uow = Uow;
         }
 
+        public async Task<Author> CreateAuthor(Author author)
+        {
+            await uow.Authors.AddAsync(author);
+            await uow.CommitAsync();
+            return author;
+        }
+
+        public async Task DeleteAuthor(Author author)
+        {
+            uow.Authors.Delete(author);
+            await uow.CommitAsync();
+        }
+
         public async Task<IEnumerable<Author>> GetAllAuthors()
         {
             return await uow.Authors.GetAllAuthors();

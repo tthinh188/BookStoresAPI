@@ -1,4 +1,4 @@
-﻿using BookStores.Repository.Repositories;
+﻿using BookStores.Repository.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +10,7 @@ namespace BookStores.Repository
     public interface IUnitOfWork : IDisposable
     {
         IAuthorRepo Authors { get; }
+        IUserRepo Users { get; }
         Task<int> CommitAsync();
 
     }

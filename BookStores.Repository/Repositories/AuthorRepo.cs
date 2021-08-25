@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using BookStores.Repository.Repositories.Interfaces;
 
 namespace BookStores.Repository.Repositories
 {

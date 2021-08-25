@@ -12,3 +12,4 @@ D:\workspace\ASP.NET-CORE\BookStores\BookStores.Domain\obj\Debug\net5.0\BookStor
 D:\workspace\ASP.NET-CORE\BookStores\BookStores.Domain\obj\Debug\net5.0\ref\BookStores.Domain.dll
 D:\workspace\ASP.NET-CORE\BookStores\BookStores.Domain\obj\Debug\net5.0\BookStores.Domain.pdb
 D:\workspace\ASP.NET-CORE\BookStores\BookStores.Domain\obj\Debug\net5.0\BookStores.Domain.genruntimeconfig.cache
+D:\workspace\ASP.NET-CORE\BookStores\BookStores.Domain\obj\Debug\net5.0\BookStores.Domain.csproj.AssemblyReference.cache

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStores.Repository.Repositories
+namespace BookStores.Repository.Repositories.Interfaces
 {
     public interface IAuthorRepo : IRepository<Author>
     {

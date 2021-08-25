@@ -12,7 +12,7 @@ namespace BookStores.Repository.Repositories
     {
         TEntity GetByID(int id);
         IEnumerable<TEntity> GetAll();
-        Task Insert(TEntity entity);
+        Task AddAsync(TEntity entity);
         void Delete(TEntity entity);
         void Update(TEntity entity);
         Task InsertRange(IEnumerable<TEntity> entities);
@@ -47,7 +47,7 @@ namespace BookStores.Repository.Repositories
             return entity;
         }
 
-        public async Task Insert(TEntity entity)
+        public async Task AddAsync(TEntity entity)
         {
             await Context.Set<TEntity>().AddAsync(entity);
         }

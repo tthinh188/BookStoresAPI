@@ -8,6 +8,8 @@ namespace BookStores.Services
     {
         Task<IEnumerable<Author>> GetAllAuthors();
         Task<Author> GetAuthorById(int Id);
+        Task<Author> CreateAuthor(Author author);
+        Task DeleteAuthor(Author author);
         Task UpdateAuthor(Author AuthorToUpdate, Author author);
     }
 }

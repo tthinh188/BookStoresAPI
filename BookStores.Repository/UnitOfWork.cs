@@ -1,5 +1,6 @@
 ﻿using BookStores.Domain.Models;
 using BookStores.Repository.Repositories;
+using BookStores.Repository.Repositories.Interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -9,6 +10,7 @@ namespace BookStores.Repository
     {
         private readonly BookStoreDBContext Context;
         private AuthorRepo _authorRepo;
+        private UserRepo _userRepo;
 
         public UnitOfWork(BookStoreDBContext context)
         {
@@ -16,6 +18,7 @@ namespace BookStores.Repository
         }
 
         public IAuthorRepo Authors => _authorRepo = _authorRepo ?? new AuthorRepo(Context);
+        public IUserRepo Users => _userRepo = _userRepo ?? new UserRepo(Context);
 
         public async Task<int> CommitAsync()
         {

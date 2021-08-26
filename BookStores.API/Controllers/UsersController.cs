@@ -1,5 +1,6 @@
 ﻿using BookStores.API.Settings;
 using BookStores.Domain.Models;
+using BookStores.Services;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,17 +21,40 @@ namespace BookStores.API.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly UserManager<User> _userManager;
-        private readonly RoleManager<Role> _roleManager;
         private readonly JwtSettings _jwtSettings;
+        private readonly IUserService UserService;
 
-        public UsersController(IOptionsSnapshot<JwtSettings> jwtSettings)
+        public UsersController(IOptionsSnapshot<JwtSettings> jwtSettings, IUserService UserService)
         {
             _jwtSettings = jwtSettings.Value;
+            this.UserService = UserService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> SignUp([FromBody] User user)
+        {
+            user.Password = HashPassword(user.Password);
+
+            await UserService.CreateUser(user);
+
+            return Created(string.Empty, string.Empty);
+        }
+
+        [HttpPost("SignIn")]
+        public async Task<IActionResult> SignIn([FromBody] User user)
+        {
+            // user.Password = HashPassword(user.Password);
+
+            user.Password = "/gdwUN3xT3+Gzrk0cKxzvnK709gGOppdL3RTqYyL19g=";
+
+            var isValidCredential = await UserService.SignIn(user);
+            if (isValidCredential)
+                return Ok(GenerateJwt(user));
+            else
+                return Unauthorized();
+        }
+
+        private string HashPassword(string Password)
         {
             byte[] salt = new byte[128 / 8];
             using (var rngCsp = new RNGCryptoServiceProvider())
@@ -38,25 +62,13 @@ namespace BookStores.API.Controllers
                 rngCsp.GetNonZeroBytes(salt);
             }
             string hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: user.Password,
+                password: Password,
                 salt: salt,
                 prf: KeyDerivationPrf.HMACSHA256,
                 iterationCount: 100000,
                 numBytesRequested: 256 / 8));
-            user.Password = hashedPassword;
-
-            return Created(string.Empty, string.Empty);
-
+            return hashedPassword;
         }
-
-        [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn([FromBody] User user)
-        {
-            // var roles = await _userManager.GetRolesAsync(user);
-            return Ok(GenerateJwt(user));
-        }
-
-
         private string GenerateJwt(User user)
         {
             var claims = new List<Claim>

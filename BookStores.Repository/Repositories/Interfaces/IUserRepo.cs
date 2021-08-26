@@ -9,8 +9,6 @@ namespace BookStores.Repository.Repositories.Interfaces
 {
     public interface IUserRepo : IRepository<User>
     {
-        Task<User> AddUser(User user);
-        Task<User> GetUser(User user);
-
+        Task<User> GetUserAsync(User user);
     }
 }

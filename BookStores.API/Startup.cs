@@ -63,6 +63,7 @@ namespace BookStores.API
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<IUserService, UserService>();
 
             services.AddSwaggerGen(c =>
             {

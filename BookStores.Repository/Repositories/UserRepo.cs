@@ -5,20 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStores.Repository.Repositories
 {
     public class UserRepo : Repository<User>, IUserRepo
     {
         public UserRepo(BookStoreDBContext context) : base(context) { }
-        public Task<User> AddUser(User user)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<User> GetUser(User user)
+        public async Task<User> GetUserAsync(User user)
         {
-            throw new NotImplementedException();
+            return await BookStoreDBContext.Users
+                                            .SingleOrDefaultAsync(u => u.EmailAddress == user.EmailAddress && u.Password == user.Password);
+        }
+        private BookStoreDBContext BookStoreDBContext
+        {
+            get { return Context as BookStoreDBContext; }
         }
     }
 }

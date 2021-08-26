@@ -11,5 +11,7 @@ namespace BookStores.Services
     {
         Task<User> GetUserById(int Id);
         Task<User> CreateUser(User author);
+        public Task<bool> SignIn(User user);
+
     }
 }

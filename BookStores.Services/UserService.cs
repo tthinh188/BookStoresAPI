@@ -16,15 +16,22 @@ namespace BookStores.Services
         {
             uow = Uow;
         }
-        public Task<User> CreateUser(User author)
+        public async Task<User> CreateUser(User user)
         {
-
-            throw new NotImplementedException();
+            await uow.Users.AddAsync(user);
+            await uow.CommitAsync();
+            return user;
         }
 
         public Task<User> GetUserById(int Id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<bool> SignIn(User user)
+        {
+            var UserExist = await uow.Users.GetUserAsync(user);
+            return UserExist != null;
         }
     }
 }
